@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggnog: {fileID: 8033647479098690335, guid: 6416c79dc898d4e19ac65c91baec5302, type: 3}
+  eggnogSpawnDelay: 3
 --- !u!4 &1512434683
 Transform:
   m_ObjectHideFlags: 0

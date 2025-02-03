@@ -5,6 +5,12 @@ using UnityEngine;
 public class FrogSpawner : MonoBehaviour
 {
     [SerializeField] GameObject eggnog;
+    [SerializeField] float eggnogSpawnDelay;
+
+    private void Start()
+    {
+        StartCoroutine(BasicFrogSpawner());
+    }
 
     private void Update()
     {
@@ -17,5 +23,14 @@ public class FrogSpawner : MonoBehaviour
     public void SpawnFrog(GameObject frogToSpawn)
     {
         Instantiate(frogToSpawn, transform.position, Quaternion.identity);
+    }
+
+    private IEnumerator BasicFrogSpawner()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(eggnogSpawnDelay);
+            SpawnFrog(eggnog);
+        }
     }
 }
