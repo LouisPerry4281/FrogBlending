@@ -9,12 +9,12 @@ public class FrogSpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(BasicFrogSpawner());
+        //StartCoroutine(BasicFrogSpawner());
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             SpawnFrog(eggnog);
         }
@@ -22,7 +22,8 @@ public class FrogSpawner : MonoBehaviour
 
     public void SpawnFrog(GameObject frogToSpawn)
     {
-        Instantiate(frogToSpawn, transform.position, Quaternion.identity);
+        GameObject frogInstance = Instantiate(frogToSpawn, transform.position, Quaternion.identity);
+        frogInstance.GetComponent<FrogHealth>().InitialiseFrog();
     }
 
     private IEnumerator BasicFrogSpawner()
