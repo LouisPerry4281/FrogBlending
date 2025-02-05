@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     CurrencyData currencyData;
 
-    [SerializeField] TextMeshProUGUI currencyUI;
+    [SerializeField] TextMeshProUGUI[] currencyUI;
 
     private void Start()
     {
@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
 
     public void UpdateCurrency()
     {
-        currencyUI.text = "FrogCoin: " + currencyData.currency;
+        foreach(TextMeshProUGUI ui in currencyUI)
+        {
+            ui.text = "FrogCoin: " + currencyData.currency;
+        }
     }
 }
