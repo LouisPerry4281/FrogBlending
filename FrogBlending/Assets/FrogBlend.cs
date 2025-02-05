@@ -6,16 +6,20 @@ using UnityEngine.Events;
 
 public class FrogBlend : MonoBehaviour
 {
-    public UnityEvent blend;
+    [HideInInspector] public UnityEvent blend;
+    [HideInInspector] public ButtonScript buttonScript;
+
+    [SerializeField] float blendRefreshTimer;
+    bool isReadyToBlend = true;
 
     private void Start()
     {
-        
+        buttonScript = FindObjectOfType<ButtonScript>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (buttonScript.isBlending && isReadyToBlend)
         {
             BlendFrog();
         } 
@@ -23,6 +27,15 @@ public class FrogBlend : MonoBehaviour
 
     private void BlendFrog()
     {
+        isReadyToBlend = false;
+
         blend.Invoke();
+
+        Invoke(nameof(PrepareBlender), blendRefreshTimer);
+    }
+
+    private void PrepareBlender()
+    {
+        isReadyToBlend = true;
     }
 }

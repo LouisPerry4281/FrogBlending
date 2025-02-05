@@ -346,6 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebacab29106f34b839759ac1db4a1299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBlending: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1185,9 @@ MonoBehaviour:
   blend:
     m_PersistentCalls:
       m_Calls: []
+  buttonScript: {fileID: 0}
+  blendRefreshTimer: 1
+  isReadyToBlend: 0
 --- !u!4 &1431306361
 Transform:
   m_ObjectHideFlags: 0
