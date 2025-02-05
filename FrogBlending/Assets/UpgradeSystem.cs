@@ -82,20 +82,4 @@ public class UpgradeSystem : MonoBehaviour
     {
         currencyData = FindObjectOfType<CurrencyData>();
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            IncreaseFrogSpawnRate();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            IncreaseBlenderDamage();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            IncreaseBlenderAttackRate();
-        }
-    }
 }
