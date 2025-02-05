@@ -17,14 +17,6 @@ public class FrogSpawner : MonoBehaviour
         StartCoroutine(BasicFrogSpawner());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SpawnFrog(eggnog);
-        }
-    }
-
     public void SpawnFrog(GameObject frogToSpawn)
     {
         GameObject frogInstance = Instantiate(frogToSpawn, spawner.transform.position, Quaternion.identity);
