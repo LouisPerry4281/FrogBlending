@@ -1,18 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FrogHealth : MonoBehaviour
 {
+    BlenderData blenderData;
+
+    [SerializeField] float health = 3;
+
     public bool isInsideBlender = false;
+
+    private void Start()
+    {
+        blenderData = FindObjectOfType<BlenderData>();
+    }
 
     public void TakeDamage()
     {
-        print("Oh?");
         if (!isInsideBlender)
             return;
 
-        print("Blend!");
+        health -= blenderData.blenderDamage; //Add multipliers here
+
+        if (health <= 0)
+        {
+            FrogDeath();
+        }
+    }
+
+    private void FrogDeath()
+    {
+        Destroy(gameObject);
     }
 
     public void InitialiseFrog()
