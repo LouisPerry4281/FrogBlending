@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI[] currencyUI;
 
+    [SerializeField] GameObject mainUI, upgradeMenuUI;
+
     private void Start()
     {
         currencyData = FindObjectOfType<CurrencyData>();
@@ -20,5 +22,17 @@ public class UIManager : MonoBehaviour
         {
             ui.text = "FrogCoin: " + currencyData.currency;
         }
+    }
+
+    public void OpenUpgradeMenu()
+    {
+        mainUI.SetActive(false);
+        upgradeMenuUI.SetActive(true);
+    }
+
+    public void OpenMainUI()
+    {
+        mainUI.SetActive(true);
+        upgradeMenuUI.SetActive(false);
     }
 }
