@@ -31,7 +31,7 @@ public class FrogHealth : MonoBehaviour
             FrogDeath();
             return;
         }
-        print("Zoom");
+
         rb.AddForce(Vector3.up * knockbackForce, ForceMode.Impulse);
     }
 
