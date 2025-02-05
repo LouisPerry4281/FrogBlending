@@ -9,6 +9,7 @@ public class FrogHealth : MonoBehaviour
     Rigidbody rb;
     UIManager uIManager;
     CurrencyData currencyData;
+    UpgradeSystem upgradeSystem;
 
     [SerializeField] float health = 3;
     [SerializeField] float knockbackForce = 2000;
@@ -23,6 +24,7 @@ public class FrogHealth : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         blenderData = FindObjectOfType<BlenderData>();
         currencyData = FindObjectOfType<CurrencyData>();
+        upgradeSystem = FindObjectOfType<UpgradeSystem>();
     }
 
     public void TakeDamage()
@@ -30,7 +32,7 @@ public class FrogHealth : MonoBehaviour
         if (!isInsideBlender)
             return;
 
-        health -= blenderData.blenderDamage; //Add multipliers here
+        health -= blenderData.blenderDamage * upgradeSystem.GetBlenderDamageMultiplier(); //Add multipliers here
 
         if (health <= 0)
         {

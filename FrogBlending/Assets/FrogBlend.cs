@@ -8,6 +8,7 @@ public class FrogBlend : MonoBehaviour
 {
     [HideInInspector] public UnityEvent blend;
     [HideInInspector] public ButtonScript buttonScript;
+    UpgradeSystem upgradeSystem;
 
     [SerializeField] float blendRefreshTimer;
     bool isReadyToBlend = true;
@@ -15,6 +16,7 @@ public class FrogBlend : MonoBehaviour
     private void Start()
     {
         buttonScript = FindObjectOfType<ButtonScript>();
+        upgradeSystem = FindObjectOfType<UpgradeSystem>();
     }
 
     void Update()
@@ -31,7 +33,7 @@ public class FrogBlend : MonoBehaviour
 
         blend.Invoke();
 
-        Invoke(nameof(PrepareBlender), blendRefreshTimer);
+        Invoke(nameof(PrepareBlender), blendRefreshTimer * upgradeSystem.GetBlenderAttackRateMultiplier());
     }
 
     private void PrepareBlender()

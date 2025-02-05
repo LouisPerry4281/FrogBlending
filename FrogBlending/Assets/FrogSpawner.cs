@@ -6,10 +6,15 @@ public class FrogSpawner : MonoBehaviour
 {
     [SerializeField] GameObject eggnog;
     [SerializeField] float eggnogSpawnDelay;
+    [SerializeField] Transform spawner;
+
+    UpgradeSystem upgradeSystem;
 
     private void Start()
     {
-        //StartCoroutine(BasicFrogSpawner());
+        upgradeSystem = FindObjectOfType<UpgradeSystem>();
+
+        StartCoroutine(BasicFrogSpawner());
     }
 
     private void Update()
@@ -22,7 +27,7 @@ public class FrogSpawner : MonoBehaviour
 
     public void SpawnFrog(GameObject frogToSpawn)
     {
-        GameObject frogInstance = Instantiate(frogToSpawn, transform.position, Quaternion.identity);
+        GameObject frogInstance = Instantiate(frogToSpawn, spawner.transform.position, Quaternion.identity);
         frogInstance.GetComponent<FrogHealth>().InitialiseFrog();
     }
 
@@ -30,7 +35,7 @@ public class FrogSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(eggnogSpawnDelay);
+            yield return new WaitForSeconds(eggnogSpawnDelay * upgradeSystem.GetFrogSpawnRateMultiplier());
             SpawnFrog(eggnog);
         }
     }
