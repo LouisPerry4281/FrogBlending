@@ -10,4 +10,9 @@ public class CurrencyData : MonoBehaviour
     {
         currency += currencyToAdd;
     }
+
+    public void SpendCurrency(int currencyToSpend)
+    {
+        currency -= currencyToSpend;
+    }
 }
