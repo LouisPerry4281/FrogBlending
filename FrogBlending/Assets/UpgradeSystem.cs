@@ -29,12 +29,10 @@ public class UpgradeSystem : MonoBehaviour
 
     public void IncreaseFrogSpawnRate()
     {
-        if (currencyData.currency < spawnRateUpgradeCost[spawnRateUpgradeLevel])
+        if (CheckUpgradeCost(spawnRateUpgradeCost[spawnRateUpgradeLevel]))
         {
-            return;
+            spawnRateUpgradeLevel++;
         }
-        currencyData.SpendCurrency(spawnRateUpgradeCost[spawnRateUpgradeLevel]);
-        spawnRateUpgradeLevel++;
     }
 
     public float GetBlenderDamageMultiplier()
@@ -45,12 +43,10 @@ public class UpgradeSystem : MonoBehaviour
 
     public void IncreaseBlenderDamage()
     {
-        if (currencyData.currency < blenderDamageUpgradeCost[blenderDamageUpgradeLevel])
+        if (CheckUpgradeCost(blenderDamageUpgradeCost[blenderDamageUpgradeLevel]))
         {
-            return;
+            blenderDamageUpgradeLevel++;
         }
-        currencyData.SpendCurrency(blenderDamageUpgradeCost[blenderDamageUpgradeLevel]);
-        blenderDamageUpgradeLevel++;
     }
 
     public float GetBlenderAttackRateMultiplier()
@@ -61,12 +57,25 @@ public class UpgradeSystem : MonoBehaviour
 
     public void IncreaseBlenderAttackRate()
     {
-        if (currencyData.currency < blenderAttackRechargeCost[blenderAttackRechargeUpgradeLevel])
+        if (CheckUpgradeCost(blenderAttackRechargeCost[blenderAttackRechargeUpgradeLevel]))
         {
-            return;
+            blenderAttackRechargeUpgradeLevel++;
         }
-        currencyData.SpendCurrency(blenderAttackRechargeCost[blenderAttackRechargeUpgradeLevel]);
-        blenderAttackRechargeUpgradeLevel++;
+    }
+
+    private bool CheckUpgradeCost(int cost)
+    {
+        if (currencyData.currency < cost)
+        {
+            print("Not Enough Moola");
+            return false;
+        }
+
+        else
+        {
+            currencyData.SpendCurrency(cost);
+            return true;
+        }
     }
 
     private void Start()
