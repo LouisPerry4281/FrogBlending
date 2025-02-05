@@ -6,13 +6,16 @@ using UnityEngine;
 public class FrogHealth : MonoBehaviour
 {
     BlenderData blenderData;
+    Rigidbody rb;
 
     [SerializeField] float health = 3;
+    [SerializeField] float knockbackForce = 2000;
 
     public bool isInsideBlender = false;
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         blenderData = FindObjectOfType<BlenderData>();
     }
 
@@ -26,7 +29,10 @@ public class FrogHealth : MonoBehaviour
         if (health <= 0)
         {
             FrogDeath();
+            return;
         }
+        print("Zoom");
+        rb.AddForce(Vector3.up * knockbackForce, ForceMode.Impulse);
     }
 
     private void FrogDeath()
