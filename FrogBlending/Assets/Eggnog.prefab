@@ -1072,6 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   knockbackForce: 5
+  currencyDropped: 1
   isInsideBlender: 0
 --- !u!65 &5708295365948418115
 BoxCollider:
