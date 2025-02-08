@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e4099b0edb648cd8fa99f84ebb7d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticles: {fileID: 4823930075862586710, guid: d0372c71eeb4341fab229e08274d88ff,
+    type: 3}
   health: 3
   knockbackForce: 5
   currencyDropped: 1
