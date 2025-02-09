@@ -12,6 +12,7 @@ public class FrogHealth : MonoBehaviour
     UpgradeSystem upgradeSystem;
 
     [SerializeField] GameObject deathParticles;
+    [SerializeField] GameObject coinGainedText;
 
     [SerializeField] float health = 3;
     [SerializeField] float knockbackForce = 2000;
@@ -50,6 +51,8 @@ public class FrogHealth : MonoBehaviour
     {
         currencyData.AddCurrency(currencyDropped);
         uIManager.UpdateCurrency();
+
+        GameObject coinGainedTextInstance = Instantiate(coinGainedText, transform.position, Quaternion.identity);
 
         GameObject deathParticlesInstance = Instantiate(deathParticles, transform.position, Quaternion.identity);
         deathParticlesInstance.GetComponent<ParticleSystem>().Play();

@@ -65,6 +65,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticles: {fileID: 4823930075862586710, guid: d0372c71eeb4341fab229e08274d88ff,
     type: 3}
+  coinGainedText: {fileID: 8548132215080643045, guid: 16899ed5257ec4e83a6a0d2396beda6c,
+    type: 3}
   health: 3
   knockbackForce: 5
   currencyDropped: 1
