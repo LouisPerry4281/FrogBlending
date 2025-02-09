@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FrogHealth : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class FrogHealth : MonoBehaviour
         uIManager.UpdateCurrency();
 
         GameObject coinGainedTextInstance = Instantiate(coinGainedText, transform.position, Quaternion.identity);
+        coinGainedTextInstance.GetComponentInChildren<TextMeshProUGUI>().text = "+" + currencyDropped + " FrogCoins";
 
         GameObject deathParticlesInstance = Instantiate(deathParticles, transform.position, Quaternion.identity);
         deathParticlesInstance.GetComponent<ParticleSystem>().Play();
