@@ -2849,13 +2849,13 @@ MonoBehaviour:
   - 1
   - 2
   - 3
-  blenderDamageUpgradeCost: 0a00000032000000
+  blenderDamageUpgradeCost: 0a0000001e000000
   blenderAttackRechargeUpgradeLevel: 0
   blenderAttackRechargeUpgrade:
   - 1
   - 0.5
   - 0.1
-  blenderAttackRechargeCost: 0a00000032000000
+  blenderAttackRechargeCost: 0a0000001e000000
 --- !u!1 &1512434681
 GameObject:
   m_ObjectHideFlags: 0
